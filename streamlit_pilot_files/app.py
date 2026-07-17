@@ -130,16 +130,9 @@ st.audio(os.path.join(GENERATED_DIR, row.filename))
 st.subheader("Transcript")
 st.info(row.transcript)
 
-st.markdown(
-    f"**Affected word:** **{row['Affected word']}**"
-)
-
-#st.info(row.transcript)
-
 # ---------------------------
 # Questions
 # ---------------------------
-answer = None
 
 if row.question == "word":
 
@@ -151,6 +144,20 @@ if row.question == "word":
     )
 
 elif row.question == "severity":
+
+    # Show affected word ONLY here
+    #st.markdown(f"**Affected word:** **{row['Affected word']}**")
+    st.markdown(
+    f"""
+    <p style="font-size:20px;">
+        <b>Affected word:</b>
+        <span style="color:red; font-weight:bold;">
+            {row['Affected word']}
+        </span>
+    </p>
+    """,
+    unsafe_allow_html=True,
+)
 
     answer = st.radio(
         "How much was the affected word altered?",
@@ -165,6 +172,43 @@ elif row.question == "similarity":
         [1, 2, 3, 4, 5],
         horizontal=True,
     )
+
+
+#st.markdown(
+#    f"**Affected word:** **{row['Affected word']}**"
+#)
+
+#st.info(row.transcript)
+
+# ---------------------------
+# Questions
+# ---------------------------
+#answer = None
+
+#if row.question == "word":
+
+#    words = str(row.words).split("|")
+
+#    answer = st.radio(
+#        "Which word sounds most different?",
+#        words + ["No noticeable difference"],
+#    )
+
+#elif row.question == "severity":
+
+#    answer = st.radio(
+#        "How much was the affected word altered?",
+#        [1, 2, 3, 4, 5],
+#        horizontal=True,
+#    )
+
+#elif row.question == "similarity":
+
+#    answer = st.radio(
+#        "How similar is the generated utterance to the original?",
+#        [1, 2, 3, 4, 5],
+#        horizontal=True,
+ #   )
 
 # ---------------------------
 # Save Response
