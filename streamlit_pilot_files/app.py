@@ -9,7 +9,8 @@ from datetime import datetime
 # ---------------------------
 st.set_page_config(page_title="Speech Perception Pilot")
 
-METADATA_FILE = "metadata.csv"
+METADATA_FILE = ""metadata.xlsx""
+
 ORIGINAL_DIR = "original"
 GENERATED_DIR = "generated"
 RESP_DIR = "responses"
@@ -24,7 +25,8 @@ QUESTION_TYPES = ["word", "severity", "similarity"]
 # ---------------------------
 def generate_trials():
 
-    df = pd.read_csv(METADATA_FILE)
+    #df = pd.read_csv(METADATA_FILE)
+    df = pd.read_excel(METADATA_FILE)
 
     trials = []
 
