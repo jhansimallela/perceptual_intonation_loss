@@ -1,4 +1,25 @@
 import streamlit as st
+import os
+
+st.title("Debug Information")
+
+st.write("Current working directory:")
+st.code(os.getcwd())
+
+st.write("Files in current directory:")
+st.write(os.listdir("."))
+
+st.write("Files in streamlit_pilot_files (if it exists):")
+if os.path.exists("streamlit_pilot_files"):
+    st.write(os.listdir("streamlit_pilot_files"))
+else:
+    st.write("No streamlit_pilot_files directory found.")
+
+st.stop()
+
+
+'''
+import streamlit as st
 import pandas as pd
 import random
 import os
@@ -201,7 +222,7 @@ if st.button("Submit & Next"):
 
     st.rerun()
 
-
+'''
 
 
 
