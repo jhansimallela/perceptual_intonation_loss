@@ -9,7 +9,7 @@ from datetime import datetime
 # ---------------------------
 st.set_page_config(page_title="Speech Perception Pilot")
 
-METADATA_FILE = ""metadata.xlsx""
+METADATA_FILE = "metadata.xlsx"
 
 ORIGINAL_DIR = "original"
 GENERATED_DIR = "generated"
